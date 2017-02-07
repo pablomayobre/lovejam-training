@@ -1,5 +1,3 @@
--- This file is part of SUIT, copyright (c) 2016 Matthias Richter
-
 local BASE = (...):match('(.-)[^%.]+$')
 local utf8 = require 'utf8'
 

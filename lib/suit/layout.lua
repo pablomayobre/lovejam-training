@@ -1,5 +1,3 @@
--- This file is part of SUIT, copyright (c) 2016 Matthias Richter
-
 local Layout = {}
 function Layout.new(x,y,padx,pady)
 	return setmetatable({_stack = {}}, {__index = Layout}):reset(x,y,padx,pady)
@@ -284,78 +282,6 @@ function Layout:cols(t)
 			function(l,mw,w) return (mw - w) / l.n_fill_w end, -- fill width
 			function() return self._heights[#self._heights] end) -- fill height
 end
-
---[[ "Tests"
-do
-
-L = Layout.new()
-
-print("immediate mode")
-print("--------------")
-x,y,w,h = L:row(100,20) -- x,y,w,h = 0,0, 100,20
-print(1,x,y,w,h)
-x,y,w,h = L:row()       -- x,y,w,h = 0, 20, 100,20 (default: reuse last dimensions)
-print(2,x,y,w,h)
-x,y,w,h = L:col(20)     -- x,y,w,h = 100, 20, 20, 20
-print(3,x,y,w,h)
-x,y,w,h = L:row(nil,30) -- x,y,w,h = 100, 20, 20, 30
-print(4,x,y,w,h)
-print('','','', L:size()) -- w,h = 20, 30
-print()
-
-L:reset()
-
-local layout = L:rows{
-	pos = {10,10},   -- optional, default {0,0}
-
-	{100, 10},
-	{nil, 10},       -- {100, 10}
-	{100, 20},       -- {100, 20}
-	{},              -- {100, 20} -- default = last value
-	{nil, "median"}, -- {100, 20}
-	"median",        -- {100, 20}
-	"max",           -- {100, 20}
-	"min",           -- {100, 10}
-	""               -- {100, 10} -- default = last value
-}
-
-print("rows")
-print("----")
-for i,x,y,w,h in layout() do
-	print(i,x,y,w,h)
-end
-print()
-
---  +-------+-------+----------------+-------+
---  |       |       |                |       |
--- 70 {100, | "max" |     "fill"     | "min" |
---  |   70} |       |                |       |
---  +--100--+--100--+------220-------+--100--+
---
---  `-------------------,--------------------'
---                     520
-local layout = L:cols{
-	pos = {10,10},
-	min_width = 520,
-
-	{100, 70},
-	"max",    -- {100, 70}
-	"fill",   -- {min_width - width_of_items, 70} = {220, 70}
-	"min",    -- {100,70}
-}
-
-print("cols")
-print("----")
-for i,x,y,w,h in layout() do
-	print(i,x,y,w,h)
-end
-print()
-
-L:push()
-L:row()
-
-end
---]]
 
 -- TODO: nesting a la rows{..., cols{...} } ?
 

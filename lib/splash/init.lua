@@ -52,72 +52,6 @@ function splashlib.new(init)
   self.delay_before = init.delay_before or 0.3
   self.delay_after = init.delay_after or 0.7
 
-  if init.fill == "rain" then
-    local rain = {}
-    rain.spacing_x = 110
-    rain.spacing_y = 80
-    rain.image = love.graphics.newImage(current_folder .. "/baby.png")
-    rain.img_w = rain.image:getWidth()
-    rain.img_h = rain.image:getHeight()
-    rain.ox = -rain.img_w / 2
-    rain.oy = -rain.img_h / 2
-    rain.batch = love.graphics.newSpriteBatch(rain.image, 512)
-    rain.t = 0
-
-    local gradient = love.graphics.newMesh({
-      {    0, height/4, 0, 0,  0, 0, 0,   0},
-      {width, height/4, 0, 0,  0, 0, 0,   0},
-      {width, height,   0, 0,  0, 0, 0, 200},
-      {    0, height,   0, 0,  0, 0, 0, 200},
-    }, "fan", "static")
-    do
-      local batch = rain.batch
-
-      local sx = rain.spacing_x
-      local sy = rain.spacing_y
-      local ox = rain.ox
-      local oy = rain.oy
-
-      local batch_w = 2 * math.ceil(love.graphics.getWidth() / sx) + 2
-      local batch_h = 2 * math.ceil(love.graphics.getHeight() / sy) + 2
-
-      batch:clear()
-
-      if batch:getBufferSize() < batch_w * batch_h then
-        batch:setBufferSize(batch_w * batch_h)
-      end
-
-      for i = 0, batch_h - 1 do
-        for j = 0, batch_w - 1 do
-          local is_even = (j % 2) == 0
-          local offset_y = is_even and 0 or sy / 2
-          local x = ox + j * sx
-          local y = oy + i * sy + offset_y
-          batch:add(x, y)
-        end
-      end
-
-      batch:flush()
-    end
-
-    function self.fill()
-      local y = rain.spacing_y * select(2, math.modf(self.elapsed))
-
-      local small_y = -rain.spacing_y + y / 2
-      local big_y = -rain.spacing_y + y
-
-      love.graphics.setBlendMode("subtract")
-      love.graphics.setColor(255, 255, 255, 128)
-      love.graphics.draw(rain.batch, -rain.spacing_x, small_y, 0, 0.5, 0.5)
-
-      love.graphics.setBlendMode("alpha")
-      love.graphics.setColor(208, 208, 208, 255)
-      love.graphics.draw(rain.batch, -rain.spacing_x, big_y)
-
-      love.graphics.draw(gradient)
-    end
-  end
-
   -- radial mask shader
   self.maskshader = love.graphics.newShader((init.fill == "lighten" and "#define LIGHTEN" or "") .. [[
 
@@ -211,7 +145,7 @@ function splashlib.new(init)
   }
 
   self.text = {
-    obj   = love.graphics.newText(love.graphics.newFont(current_folder .. "/handy-andy.otf", 22), "made with"),
+    obj   = love.graphics.newText(init.font or love.graphics.newFont(22), "MADE WITH"),
     alpha = 0
   }
   self.text.width, self.text.height = self.text.obj:getDimensions()

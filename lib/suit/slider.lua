@@ -1,5 +1,3 @@
-local BASE = (...):match('(.-)[^%.]+$')
-
 return function(core, info, ...)
 	local opt, x,y,w,h = core.getOptionsAndSize(...)
 

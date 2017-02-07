@@ -90,8 +90,8 @@ function suit:registerMouseHit(id, ul_x, ul_y, hit)
 end
 
 function suit:registerHitbox(id, x,y,w,h)
-	return self:registerMouseHit(id, x,y, function(x,y)
-		return x >= 0 and x <= w and y >= 0 and y <= h
+	return self:registerMouseHit(id, x,y, function(mx,my)
+		return mx >= 0 and mx <= w and my >= 0 and my <= h
 	end)
 end
 
@@ -164,7 +164,7 @@ function suit:enterFrame()
 	self.hit = nil
 end
 
-function suit:exitFrame()
+function suit.exitFrame()
 end
 
 -- draw

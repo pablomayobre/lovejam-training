@@ -1,5 +1,3 @@
-local BASE = (...):match('(.-)[^%.]+$')
-
 local theme = {}
 theme.cornerRadius = 4
 
@@ -17,7 +15,6 @@ function theme.getColorForState(opt)
 end
 
 function theme.drawBox(x,y,w,h, colors, cornerRadius)
-	local colors = colors or theme.getColorForState(opt)
 	cornerRadius = cornerRadius or theme.cornerRadius
 	w = math.max(cornerRadius/2, w)
 	if h < cornerRadius/2 then
@@ -60,7 +57,6 @@ end
 
 function theme.Checkbox(chk, opt, x,y,w,h)
 	local c = theme.getColorForState(opt)
-	local th = opt.font:getHeight()
 
 	theme.drawBox(x+h/10,y+h/10,h*.8,h*.8, c, opt.cornerRadius)
 	love.graphics.setColor(c.fg)
@@ -104,7 +100,6 @@ function theme.Slider(fraction, opt, x,y,w,h)
 end
 
 function theme.Input(input, opt, x,y,w,h)
-	local utf8 = require 'utf8'
 	theme.drawBox(x,y,w,h, (opt.color and opt.color.normal) or theme.color.normal, opt.cornerRadius)
 	x = x + 3
 	w = w - 6

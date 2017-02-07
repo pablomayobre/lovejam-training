@@ -1,5 +1,3 @@
-local BASE = (...):match('(.-)[^%.]+$')
-
 return function(core, normal, ...)
 	local opt, x,y = core.getOptionsAndSize(...)
 	opt.normal = normal or opt.normal or opt[1]
@@ -26,9 +24,9 @@ return function(core, normal, ...)
 		img = opt.hovered
 	end
 
-	core:registerDraw(opt.draw or function(img,x,y, r,g,b,a)
+	core:registerDraw(opt.draw or function(image,dx,dy, r,g,b,a)
 		love.graphics.setColor(r,g,b,a)
-		love.graphics.draw(img,x,y)
+		love.graphics.draw(image,dx,dy)
 	end, img, x,y, love.graphics.getColor())
 
 	return {

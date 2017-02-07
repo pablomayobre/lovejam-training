@@ -58,7 +58,7 @@ function Layout:push(x,y)
 		self._heights,
 	}
 
-	return self:reset(x,y, padx or self._padx, pady or self._pady)
+	return self:reset(x,y, self._padx, self._pady)
 end
 
 function Layout:pop()
@@ -220,7 +220,7 @@ local function layout_retained_mode(self, t, constructor, string_argument_to_tab
 		if type(v) == "string" then
 			v = string_argument_to_table(v)
 		end
-		local x,y,w,h = 0,0, v[1], v[2]
+		local w,h,x,y = v[1], v[2]
 		if v[1] == "fill" then w = 0 end
 		if v[2] == "fill" then h = 0 end
 
@@ -255,9 +255,9 @@ local function layout_retained_mode(self, t, constructor, string_argument_to_tab
 
 	-- finally: return layout with iterator
 	local w, h = self:pop()
-	layout.cell = function(self, i)
-		if self ~= layout then -- allow either colon or dot syntax
-			i = self
+	layout.cell = function(this, i)
+		if this ~= layout then -- allow either colon or dot syntax
+			i = this
 		end
 		return unpack(layout[i])
 	end

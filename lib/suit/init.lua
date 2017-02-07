@@ -48,7 +48,7 @@ return setmetatable({
 	layout = instance.layout
 }, {
 	-- theme
-	__newindex = function(t, k, v)
+	__newindex = function(_, k, v)
 		if k == "theme" then
 			instance.theme = v
 		else

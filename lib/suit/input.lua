@@ -1,4 +1,3 @@
-local BASE = (...):match('(.-)[^%.]+$')
 local utf8 = require 'utf8'
 
 local function split(str, pos)
@@ -66,8 +65,8 @@ return function(core, input, ...)
 			input.cursor = math.max(1, input.cursor-1)
 		elseif keycode == 'delete' then
 			local a,b = split(input.text, input.cursor)
-			local _,b = split(b, 2)
-			input.text = table.concat{a, b}
+			local _,c = split(b, 2)
+			input.text = table.concat{a, c}
 		end
 
 		-- cursor movement

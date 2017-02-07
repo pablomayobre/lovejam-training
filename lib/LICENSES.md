@@ -1,6 +1,8 @@
-Some of this libraries have been modified to fit the needs of this project, please use with care, documentation for each library may not match the code in this repository
+Some of this libraries have been modified to fit the needs of this project, please use with care.
+Documentation for each library may not match the code in this repository.
+Copyright notices and metadata for each library has been removed from the library files
 
-## Middleclass
+## Middleclass (4.1.0)
 
   MIT LICENSE - Copyright (c) 2011 [Enrique García Cota][1]
 
@@ -23,7 +25,7 @@ Some of this libraries have been modified to fit the needs of this project, plea
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Middleclass-commons
+## Middleclass-commons (30/12/2013)
 
   MIT LICENSE - Copyright (c) 2011-2012 [Enrique García Cota][1]
 
@@ -46,7 +48,7 @@ Some of this libraries have been modified to fit the needs of this project, plea
   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
   SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-## Gammera
+## Gamera (1.0.1)
 
   MIT License - Copyright (c) 2012 [Enrique García Cota][1]
 
@@ -71,7 +73,7 @@ Some of this libraries have been modified to fit the needs of this project, plea
 
   Based on YaciCode, from Julien Patte and LuaObject, from Sebastien Rocca-Serra
 
-## SUIT
+## SUIT (28/08/2016)
 
   MIT License - Copyright (c) 2016 [Matthias Richter][2]
 
@@ -97,7 +99,7 @@ Some of this libraries have been modified to fit the needs of this project, plea
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 
-## HC
+## HC (28/08/2016)
 
   MIT License - Copyright (c) 2011 [Matthias Richter][2]
 
@@ -123,7 +125,7 @@ Some of this libraries have been modified to fit the needs of this project, plea
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
   THE SOFTWARE.
 
-## Splash
+## Splash (1.2.0)
 
   Zlib License - Copyright (c) 2016 [love-community][3] members*
   *([as per git commits in repository][4])

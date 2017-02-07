@@ -1,3 +1,5 @@
+local _NAME = ...
+
 local common_local = require(_NAME .. '.class')
 local Shapes       = require(_NAME .. '.shapes')
 local Spatialhash  = require(_NAME .. '.spatialhash')

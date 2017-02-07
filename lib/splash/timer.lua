@@ -56,9 +56,11 @@ function Timer:after(delay, func)
 end
 
 function Timer:every(delay, func, count)
-	local count, handle = count or math.huge -- exploit below: math.huge - 1 = math.huge
+  local handle
 
-	handle = self:after(delay, function(f)
+	count = count or math.huge -- exploit below: math.huge - 1 = math.huge
+
+	handle = self:after(delay, function()
 		if func(func) == false then return end
 		count = count - 1
 		if count > 0 then
@@ -120,7 +122,7 @@ Timer.tween = setmetatable({
 }, {
 
 -- register new tween
-__call = function(tween, self, len, subject, target, method, after, ...)
+__call = function(tween, self, len, subj, targ, method, after, ...)
 	-- recursively collects fields that are defined in both subject and target into a flat list
 	local function tween_collect_payload(subject, target, out)
 		for k,v in pairs(target) do
@@ -138,7 +140,7 @@ __call = function(tween, self, len, subject, target, method, after, ...)
 	end
 
 	method = tween[method or 'linear'] -- see __index
-	local payload, t, args = tween_collect_payload(subject, target, {}), 0, {...}
+	local payload, t, args = tween_collect_payload(subj, targ, {}), 0, {...}
 
 	local last_s = 0
 	return self:during(len, function(dt)
@@ -189,7 +191,7 @@ local function new()
 		tween  = setmetatable({}, {
 			__index    = Timer.tween,
 			__newindex = function(_,k,v) Timer.tween[k] = v end,
-			__call     = function(t,...) return timer:tween(...) end,
+			__call     = function(_,...) return timer:tween(...) end,
 		})
 	}, {__call = new})
 end

@@ -96,7 +96,7 @@ local function getSharedEdge(p,q)
 	-- iterate over all edges in q. if both endpoints of that
 	-- edge are in p as well, return the indices of the starting
 	-- vertex
-	local i,k = #q,1
+	local i = #q
 	for k = 1,#q do
 		local v,w = q[i], q[k]
 		if pindex[v.x][v.y] and pindex[w.x][w.y] then
@@ -129,7 +129,8 @@ function Polygon:init(...)
 	-- assert polygon is not self-intersecting
 	-- outer: only need to check segments #vert;1, 1;2, ..., #vert-3;#vert-2
 	-- inner: only need to check unconnected segments
-	local q,p = vertices[#vertices]
+	local p
+	q = vertices[#vertices]
 	for i = 1,#vertices-2 do
 		p, q = q, vertices[i]
 		for k = i+1,#vertices-1 do
@@ -143,7 +144,7 @@ function Polygon:init(...)
 	setmetatable(self.vertices, {__newindex = function() error("Thou shall not change a polygon's vertices!") end})
 
 	-- compute polygon area and centroid
-	local p,q = vertices[#vertices], vertices[1]
+	p,q = vertices[#vertices], vertices[1]
 	local det = vector.det(p.x,p.y, q.x,q.y) -- also used below
 	self.area = det
 	for i = 2,#vertices do
@@ -234,7 +235,7 @@ function Polygon:move(dx, dy)
 	if not dy then
 		dx, dy = dx:unpack()
 	end
-	for i,v in ipairs(self.vertices) do
+	for _,v in ipairs(self.vertices) do
 		v.x = v.x + dx
 		v.y = v.y + dy
 	end
@@ -246,7 +247,7 @@ function Polygon:rotate(angle, cx, cy)
 	if not (cx and cy) then
 		cx,cy = self.centroid.x, self.centroid.y
 	end
-	for i,v in ipairs(self.vertices) do
+	for _,v in ipairs(self.vertices) do
 		-- v = (v - center):rotate(angle) + center
 		v.x,v.y = vector.add(cx,cy, vector.rotate(angle, v.x-cx, v.y-cy))
 	end
@@ -258,7 +259,7 @@ function Polygon:scale(s, cx,cy)
 	if not (cx and cy) then
 		cx,cy = self.centroid.x, self.centroid.y
 	end
-	for i,v in ipairs(self.vertices) do
+	for _,v in ipairs(self.vertices) do
 		-- v = (v - center) * s + center
 		v.x,v.y = vector.add(cx,cy, vector.mul(s, v.x-cx, v.y-cy))
 	end
@@ -379,7 +380,7 @@ function Polygon:contains(x,y)
 
 	local v = self.vertices
 	local in_polygon = false
-	local p,q = v[#v],v[#v]
+	local q,p = v[#v]
 	for i = 1, #v do
 		p,q = q,v[i]
 		if cut_ray(p,q) or cross_boundary(p,q) then
@@ -394,7 +395,7 @@ function Polygon:intersectionsWithRay(x,y, dx,dy)
 	local wx,wy,det
 
 	local ts = {} -- ray parameters of each intersection
-	local q1,q2 = nil, self.vertices[#self.vertices]
+	local q2,q1 = self.vertices[#self.vertices]
 	for i = 1, #self.vertices do
 		q1,q2 = q2,self.vertices[i]
 		wx,wy = q2.x - q1.x, q2.y - q1.y

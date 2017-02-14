@@ -133,8 +133,6 @@ with open(os.path.join(release, "game.exe"), "wb") as destination:
     with open("game.love", "rb") as game:
         shutil.copyfileobj(game, destination)
 
-os.remove("game.love")
-
 #Download rcedit if it doesn't exist
 if not os.path.exists("cache/rcedit.exe"):
     #Download rcedit.exe

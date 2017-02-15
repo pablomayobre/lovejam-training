@@ -75,6 +75,11 @@ Zlib License - Copyright (c) 2016 [love-community][21] members\*\*\*
 The assets used in the splash screen are licensed under:
 Zlib License - Copyright (c) 2006-2016 LOVE Development Team
 
+## [ScreenManager (1.8.3)][23]
+Zlib License - Copyright (c) 2014 - 2017 [Robert Machmer][24]
+
+I made several changes but the code works the same way and can be found in lib/state
+
 # Licenses
 
 ## MIT License
@@ -880,3 +885,5 @@ Zlib License - Copyright (c) 2006-2016 LOVE Development Team
 [20]:https://github.com/love2d-community/splashes/tree/b22147ffe5cbdec7caebd7afc1f795d04d116e68
 [21]:https://github.com/love2d-community
 [22]:https://github.com/love2d-community/splashes/commits/master
+[23]:https://github.com/rm-code/screenmanager/commit/8ecf7e9bbb26f9b30f48dd52483ac5a6b37daea1
+[24]:https://github.com/rm-code

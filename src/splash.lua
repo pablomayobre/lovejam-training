@@ -1,24 +1,29 @@
-local lovesplash = require "lib.splash"
+local lovesplash  = require "lib.splash"
+local States      = require "lib.state"
+local Base        = require "lib.state.base"
 
-local splash = {}
+local Splash = {}
 
-function splash:enter(_, next)
-  self.changeto = next
-end
+function Splash.new ()
+  local self = Base.new()
 
-function splash:load (gamestate)
-  self.love = lovesplash.new()
-  self.love.onDone = function ()
-    gamestate.push(self.changeto)
+  local splash = lovesplash.new()
+
+  function self:init(next)
+    splash.onDone = function ()
+      States.switch(next)
+    end
   end
+
+  function self:update (dt)
+    splash:update(dt)
+  end
+
+  function self:draw ()
+    splash:draw()
+  end
+
+  return self
 end
 
-function splash:update(_, dt)
-  self.love:update(dt)
-end
-
-function splash:draw()
-  self.love:draw()
-end
-
-return splash
+return Splash

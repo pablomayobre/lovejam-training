@@ -30,6 +30,9 @@ local validScreen = function (screen)
   end
 end
 
+-- Public Functions
+
+--If there was a change of screen, change it immediatly
 function States.performChange ()
   if should_pop then
     -- Close the currently active screen.
@@ -63,8 +66,6 @@ function States.performChange ()
     should_clear, next, args = false, nil, nil
   end
 end
-
--- Public Functions
 
 -- Initialise the States.
 -- Sets up the States and pushes the first screen.

@@ -1,68 +1,67 @@
 local Base = {};
 
-local NULL = function () end
+local function null () end
 
 function Base.new()
-    local self = {
-      -- Callbacks stubs
+  local self = {
+  -- Callbacks stubs
+    init = null,
+    close = null,
 
-      init = NULL,
-      close = NULL,
+    update = null,
+    draw = null,
 
-      update = NULL,
-      draw = NULL,
+    keypressed = null,
+    keyreleased = null,
+    textinput = null,
+    textedited = null,
 
-      keypressed = NULL,
-      keyreleased = NULL,
-      textinput = NULL,
-      textedited = NULL,
+    directorydropped = null,
+    filedropped = null,
 
-      directorydropped = NULL,
-      filedropped = NULL,
-
-      visible = NULL,
-      focus = NULL,
-      mousefocus = NULL,
-      resize = NULL,
+    visible = null,
+    focus = null,
+    mousefocus = null,
+    resize = null,
 
 
-      mousepressed = NULL,
-      mousereleased = NULL,
-      mousemoved = NULL,
-      wheelmoved = NULL,
+    mousepressed = null,
+    mousereleased = null,
+    mousemoved = null,
+    wheelmoved = null,
 
-      touchpressed = NULL,
-      touchreleased = NULL,
-      touchmoved = NULL,
+    touchpressed = null,
+    touchreleased = null,
+    touchmoved = null,
 
-      threaderror = NULL,
-      lowmemory = NULL,
-      quit = NULL,
+    threaderror = null,
+    lowmemory = null,
+    quit = null,
 
-      gamepadaxis = NULL,
-      gamepadpressed = NULL,
-      gamepadreleased = NULL,
+    gamepadaxis = null,
+    gamepadpressed = null,
+    gamepadreleased = null,
 
-      joystickadded = NULL,
-      joystickaxis = NULL,
-      joystickhat = NULL,
-      joystickpressed = NULL,
-      joystickreleased = NULL,
-      joystickremoved = NULL,
-    };
+    joystickadded = null,
+    joystickaxis = null,
+    joystickhat = null,
+    joystickpressed = null,
+    joystickreleased = null,
+    joystickremoved = null,
+  };
 
-    local active = true
+  local active = true
 
-    -- Public Methods
-    function self.isActive ()
-        return active
-    end
+  -- Public Methods
+  function self.isActive ()
+    return active
+  end
 
-    function self.setActive (dactiv)
-        active = dactiv
-    end
+  function self.setActive (dactiv)
+    active = dactiv
+  end
 
-    return self
+  return self
 end
 
 return Base

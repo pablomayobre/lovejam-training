@@ -1,13 +1,13 @@
-local lovesplash  = require "lib.splash"
-local States      = require "lib.state"
-local Base        = require "lib.state.base"
+local splashes = require "lib.splash"
+local States   = require "lib.state"
+local Base     = require "lib.state.base"
 
 local Splash = {}
 
 function Splash.new ()
   local self = Base.new()
 
-  local splash = lovesplash.new()
+  local splash = splashes.new()
 
   function self:init(next)
     splash.onDone = function ()

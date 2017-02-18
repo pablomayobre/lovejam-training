@@ -51,32 +51,32 @@ MIT LICENSE - Copyright (c) 2011-2012 [Enrique García Cota][14]
 MIT License - Copyright (c) 2012 [Enrique García Cota][1]
 Based on YaciCode, from Julien Patte and LuaObject, from Sebastien Rocca-Serra
 
-## [SUIT (28/08/2016)][17]
-MIT License\*\* - Copyright (c) 2016 [Matthias Richter][18]
+## [Bump (3.1.7)][17]
+MIT License - Copyright (c) 2012 [Enrique García Cota][1]
 
 \*\*The license also states that:
 > Except as contained in this notice, the name(s) of the above copyright holders
 > shall not be used in advertising or otherwise to promote the sale, use or
 > other dealings in this Software without prior written authorization.
 
-## [HC (28/08/2016)][19]
-MIT License\*\* - Copyright (c) 2011 [Matthias Richter][18]
+## [Hump Vector (28/08/2016)][20]
+MIT License\*\* - Copyright (c) 2012-2013 [Matthias Richter][19]
 
 \*\*The license also states that:
 > Except as contained in this notice, the name(s) of the above copyright holders
 > shall not be used in advertising or otherwise to promote the sale, use or
 > other dealings in this Software without prior written authorization.
 
-## [Splash (1.2.0)][20]
-Zlib License - Copyright (c) 2016 [love-community][21] members\*\*\*
+## [Splash (1.2.0)][21]
+Zlib License - Copyright (c) 2016 [love-community][22] members\*\*\*
 
-\*\*\*[As per git commits in repository][22]
+\*\*\*[As per git commits in repository][23]
 
 The assets used in the splash screen are licensed under:
 Zlib License - Copyright (c) 2006-2016 LOVE Development Team
 
-## [ScreenManager (1.8.3)][23]
-Zlib License - Copyright (c) 2014 - 2017 [Robert Machmer][24]
+## [ScreenManager (1.8.3)][24]
+Zlib License - Copyright (c) 2014 - 2017 [Robert Machmer][25]
 
 I made several changes but the code works the same way and can be found in lib/state
 
@@ -879,11 +879,12 @@ I made several changes but the code works the same way and can be found in lib/s
 [14]:https://github.com/kikito
 [15]:https://github.com/kikito/middleclass-commons/tree/4afe25553873ed951817d4936ef87fea80100f7f
 [16]:https://github.com/kikito/gamera/tree/c02b3a85dd177262ffc1406b9a94d157d6fdad2a
-[17]:https://github.com/vrld/SUIT/tree/549693dd38e864a56c4f93534ab64e196bba612b
-[18]:https://github.com/vrld
-[19]:https://github.com/vrld/HC/tree/410cf048e28975f580b26263776cd76167d82f2f
-[20]:https://github.com/love2d-community/splashes/tree/b22147ffe5cbdec7caebd7afc1f795d04d116e68
-[21]:https://github.com/love2d-community
-[22]:https://github.com/love2d-community/splashes/commits/master
-[23]:https://github.com/rm-code/screenmanager/commit/8ecf7e9bbb26f9b30f48dd52483ac5a6b37daea1
-[24]:https://github.com/rm-code
+[17]:https://github.com/kikito/bump.lua/tree/72d6b13dfa525564f6e1a533d71eaa8235a5e96c
+[18]:https://github.com/vrld/SUIT/tree/549693dd38e864a56c4f93534ab64e196bba612b
+[19]:https://github.com/vrld
+[20]:https://github.com/vrld/hump/blob/40aa4cb7c50fd33f8925d80450b462d937cea866/vector-light.lua
+[21]:https://github.com/love2d-community/splashes/tree/b22147ffe5cbdec7caebd7afc1f795d04d116e68
+[22]:https://github.com/love2d-community
+[23]:https://github.com/love2d-community/splashes/commits/master
+[24]:https://github.com/rm-code/screenmanager/tree/be2774e34205e6332adf2b65f20bcf8ab3645a83
+[25]:https://github.com/rm-code
